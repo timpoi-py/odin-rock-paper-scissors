@@ -104,14 +104,43 @@ function game(){
 
 }
 
-// game()
 
-// function changing_image() {
-//     const weapon_images = ["./images/rock.svg","./images/paper.svg","./images/paper.svg"]
 
-//     do {
-//         console.log(1);
-//     } while()
-// }
+function letsPlay() {
+    const welcome_blur_none = document.querySelector('.welcome-blur-none');
+    welcome_blur_none.style.opacity = '0';
+    setTimeout( () => welcome_blur_none.style.display = 'none', 1000);
+    let img_random = setTimeout(() => {
+        setInterval(iterateArrayLength, 320)
+    }, 1000);
+}
 
-const you = document.querySelector('.you img')
+// changing Image
+function iterateArrayLength() {
+    const weapon_images = ["./images/rock.svg","./images/paper.svg","./images/scissor.svg"];
+    let array = weapon_images
+    let length = array.length
+
+    for (let i=0; i<length; i++){
+        setTimeout(() => {
+            you_img.src = weapon_images[i];
+        }, i*100);
+    }
+
+    for (let i=length-1; i>=0; i--){
+        setTimeout(() => {
+            computer_image.src = weapon_images[i];
+        }, i*100);
+    }
+}    
+
+
+
+
+const welcome_blur = document.querySelector('.welcome-blur');
+
+const btn = document.querySelector('.btn-lets-play');
+btn.addEventListener('click', letsPlay);
+
+const you_img = document.getElementById('you-image');
+const computer_image = document.getElementById('computer-image');
