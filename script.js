@@ -105,3 +105,13 @@ function game(){
 }
 
 // game()
+
+// function changing_image() {
+//     const weapon_images = ["./images/rock.svg","./images/paper.svg","./images/paper.svg"]
+
+//     do {
+//         console.log(1);
+//     } while()
+// }
+
+const you = document.querySelector('.you img')
