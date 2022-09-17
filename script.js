@@ -1,14 +1,3 @@
-function getComputerChoice() {
-    
-    // Will return a word from the lists randomly
-    
-    const list = ['rock', 'paper', 'scissor'];
-
-    let choice = Math.floor(Math.random()* list.length);
-    return list[choice];
-}
-
-
 
 function playRound(playerSelection, computerSelection) {
 
@@ -105,42 +94,142 @@ function game(){
 }
 
 
+// Will enter the main page
+const welcome_blur = document.querySelector('.welcome-blur');
 
-function letsPlay() {
+function letsPlayClicked() {
     const welcome_blur_none = document.querySelector('.welcome-blur-none');
     welcome_blur_none.style.opacity = '0';
-    setTimeout( () => welcome_blur_none.style.display = 'none', 1000);
-    let img_random = setTimeout(() => {
-        setInterval(iterateArrayLength, 320)
-    }, 1000);
+    setTimeout( () => welcome_blur_none.style.display = 'none', 500);
+    
 }
 
+
 // changing Image
+let youImage = document.getElementById('you-image');
+const computerImage = document.getElementById('computer-image');
+
 function iterateArrayLength() {
     const weapon_images = ["./images/rock.svg","./images/paper.svg","./images/scissor.svg"];
-    let array = weapon_images
-    let length = array.length
+    let array = weapon_images;
+    let length = array.length;
 
     for (let i=0; i<length; i++){
         setTimeout(() => {
-            you_img.src = weapon_images[i];
-        }, i*100);
+            youImage.src = weapon_images[i];
+        }, i*150);
     }
 
     for (let i=length-1; i>=0; i--){
         setTimeout(() => {
-            computer_image.src = weapon_images[i];
-        }, i*100);
+            computerImage.src = weapon_images[i];
+        }, i*150);
     }
 }    
 
 
-
-
-const welcome_blur = document.querySelector('.welcome-blur');
-
+// enter the Main page (the lets play button is clicked)
 const btn = document.querySelector('.btn-lets-play');
-btn.addEventListener('click', letsPlay);
 
-const you_img = document.getElementById('you-image');
-const computer_image = document.getElementById('computer-image');
+function startShuffling() {
+    iterateArray = setInterval( iterateArrayLength, 450);
+}
+   
+
+function stopShuffling() {
+    clearInterval(iterateArray);
+}
+
+btn.addEventListener('click', () => {
+    letsPlayClicked();
+    setTimeout(() => {
+        startShuffling();
+    }, 500);
+})
+
+
+// When a user picked a weapon, the computer will also pick at the same time
+// both user and computer will show the weapon picked at the same time
+function getComputerChoice() { 
+    // Will return a word from the lists randomly
+    const weapon_images = ["./images/rock.svg","./images/paper.svg","./images/scissor.svg"];
+
+    let choice = Math.floor(Math.random()* weapon_images.length);
+    return weapon_images[choice];
+}
+
+let weapons = document.querySelector('.weapons');
+let compImage = document.getElementById('computer-image');
+let result = document.querySelector('.result')
+function pickWeapon() {
+    // Both Computer and User will pick a weapon
+    for (i=0; i<weapons.children.length ; i++){
+        weapons.children[i].addEventListener('click', function(e) {
+            stopShuffling()
+
+            youImg = e.target.src;
+            compImg = getComputerChoice()
+
+            setTimeout(() => {
+                youImage.setAttribute('src', './images/questionmark.svg');
+                compImage.setAttribute('src', './images/questionmark.svg');
+            }, 300);
+            
+            setTimeout(() => {
+                youImage.setAttribute('src', youImg);
+                compImage.setAttribute('src', compImg);
+                result.textContent = compareWeapon(youImg,compImg)
+                result.style.opacity = '1'
+            }, 900);
+
+            
+        })
+    }
+}
+
+
+// compare the picked weapon of the user and computer
+function compareWeapon(you,comp) {
+
+    let rock = weapons.children[0].src
+    let paper = weapons.children[1].src
+    let scissor = weapons.children[2].src
+
+    if (you == rock) {
+
+        if (comp == paper){
+            return "You lose! Paper beats rock";
+        } else if (comp == scissor){
+            return "You win! Rock beats scissor";
+        } else {
+            return "It's a tie! Both of you picked rock";
+        }
+    } else if (you == paper) {
+
+        if (comp == paper){
+            return "It's a tie! Both of you picked paper";
+        } else if (comp == scissor){
+            return "You lose! Scissor beats paper";
+        } else {
+            return "You win! Paper beats rock";
+        }
+    } else if (you == scissor) {
+        if (comp == paper){
+            return "You win! Scissor beats paper";
+        } else if (comp == scissor){
+            return "It's a tie! Both of you picked scissor";
+        } else {
+            return "You lose! Rock beats scissor";
+        }
+    } 
+    
+}
+// show result
+
+pickWeapon()
+// console.log(weapons.children);
+
+
+
+
+
