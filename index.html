@@ -6,57 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
-    <div class="welcome-blur welcome-blur-none">
-        
-        <div class="logo">
-            <img src="./SVG/Artboard 1 copy 5.svg" alt="">
-            <h3>TPOI</h3>
-        </div>
-        <section class="welcome">
-            <h1>WELCOME TO ROCK-PAPER-SCISSOR TOURNAMENT!</h1>
-            <p>Do you have what it takes to become a champion?</p>
-            <button class="btn-lets-play">Let's Play!</button>
-        </section>
+    
+    <!-- ✊ ✋ ✌ -->
 
+    <div class="working-container">
+        <header class="header">
+            <h1>ROCK PAPER SCISSOR GAME</h1>
+        </header>
+        <main class="main">
+            <section class="you-comp">
+                <div class="you-div">
+                    <h2 class="you">You - <span id="computer-point">0</span></h2>
+                    <!-- <p class="you-point">0</p> -->
+                    <div class="you-pick">✊</div>
+                </div>
+                <div class="computer-div">
+                    <h2 class="computer">Computer - <span id="computer-point">0</span></h2>
+                    <!-- <p class="computer-point">0</p> -->
+                    <div class="computer-pick">✊</div>
+                </div>
+            </section>
+            <div class="weapons-parag">
+                <div class="weapons">
+                    <div class="weapon" id="rock">✊</div>
+                    <div class="weapon" id="paper">✋</div>
+                    <div class="weapon" id="scissor">✌</div>
+                </div>
+                <p class="parag">Pick your weapon</p>
+            </div>
+        </main>
+        <footer class="footer">
+            <p class="copyright">Copyright © 2022 timpoi-py <img src="" alt=""></p>
+        </footer>
     </div>
-    <section class="main-section">
-
-        <div class="main-section-logo">
-            <img src="./SVG/Artboard 1 copy 5.svg" alt="">
-            <h3>TPOI</h3>
-        </div>
-
-        <div class="score">
-            <h4>score</h4>
-            <p><span class="scoreYou">0</span>:<span class="scoreComp">0</span></p>
-        </div>
-        
-        <div class="main">
-            <div class="you">
-                <h3>You</h3>
-                <img id="you-image" src="./images/questionmark.svg" alt="">
-            </div>
-            <div class="comp">
-                <h3>Computer</h3>
-                <img id="computer-image" src="./images/questionmark.svg" alt="">
-            </div>
-        </div>
-        
-
-        <div class="weapon-sec">
-            <div class="weapons">
-                <img src="./images/rock.svg" alt="" class="rock">
-                <img src="./images/paper.svg" alt="" class="paper">
-                <img src="./images/scissor.svg" alt="" class="scissor">
-            </div>
-            <p>Pick your weapon</p>
-            <p class="result">Something</p>
-        </div>
-    </section>
 
 </body>
 

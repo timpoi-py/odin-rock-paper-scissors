@@ -1,170 +1,105 @@
 :root {
-    --darkest: #17252A;
-    --dark: #2B7A78;
-    --neutral: #3AAFA9;
-    --light: #DEF2F1;
-    --lightest: #FEFFFF;
-    --blur: 12px;
+    --darkest: #2C3333;
+    --dark: #395B64;
+    --light: #A5C9CA;
+    --lightest: #E7F6F2;
 }
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     line-height: 1.1;
+
+    font-family: 'Merriweather', serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.welcome-blur {
-    height: 100vh;
-    background-color: rgba(58, 175, 169,0.4);
-    -webkit-backdrop-filter: blur(var(--blur));
-    backdrop-filter: blur(var(--blur));
-    transition: opacity 750ms ease-out;
-
-}
-
-/* .welcome-blur-none {
-    display: none;
-} */
-
-
-.logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
-
-.logo img {
-    height: 2rem;
-    margin-right: 0.5rem;
-}
-
-.welcome {
-    min-width: 100vw;
-    max-width: 1100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    text-align: center;
-    padding: 0 2rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-
-
-.btn-lets-play {
-    background-color: var(--darkest);
-    color: var(--lightest);
-    padding: 0.4rem 0.8rem;
-    border-radius: 0.5rem;
-    font-weight: bold;
-    border: none;
-}
-
-.btn-lets-play:hover,
-.btn-lets-play:focus {
-    background-color: var(--light);
-    color: var(--darkest);
-}
-
-
-.main-section {
-    color: var(--darkest);
-    background-image: linear-gradient(to bottom right, var(--lightest), var(--dark) );
-    height: 100vh;
+.working-container {
     width: 100vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0 3rem;
+    height: 100vh;
+    background-color: var(--dark);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 3.5rem;
-    z-index: -1;
+    justify-content: space-between;
+    
 }
 
-.main-section-logo {
-    position: absolute;
-    top: 5%;
-    left: 5%;
-    transform: translate(0%,-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    scale: 0.6;
-    gap: 0.5rem;
-}
-
-.main-section-logo img {
-    width: 2rem;
+.header {
+    text-align: center;
+    background-color: var(--darkest);
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    font-size: clamp(.8rem, 1vw, 1.2rem);
 }
 
 .main {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 1.2rem;
-}
-
-.main img {
-    width: 3.2rem;
-    height: 3.2rem;
-}
-
-.main div {
-    width: 30%;
+    padding: 0 28px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
+    gap: 10vh;
+    min-height: max-content;
+
 }
 
-.score {
-    text-align: center;
+.you-comp {
+    display: flex;
+    justify-content: center;
+    gap: 15vw;
+    color: var(--lightest);
 }
 
-.score p {
-    margin-top: 0.8rem;
-    font-size: 2.5rem;
+.you, .computer {
+    font-size: clamp(20px, 2vw, 3rem);
 }
 
-.weapon-sec {
+.you-div,
+.computer-div {
     display: flex;
     flex-direction: column;
-    text-align: center;
-    gap: 1rem;
+    align-items: center;
+    gap: 2.3vh;
 }
 
 .weapons {
     display: flex;
-    gap: 2rem;
+    justify-content: center;
+    gap: 5vw;
 }
 
-.weapons img {
-    width: 3rem;
+
+.you-pick,
+.computer-pick {
+    padding: 0.4rem;
+    font-size: clamp(3.5rem,5vw,5rem);
+    border-radius: 5vw;
 }
 
-.weapons img:hover,
-.weapons img:focus {
-    /* border: 2px solid var(--dark); */
-    outline: 2px solid var(--light);
-    outline-offset: 6px;
+.weapon{
+    background-color: var(--light);
+    padding: 1rem;
+    font-size: clamp(3.5rem,5vw,5rem);
+    border-radius: 30px;
 }
 
-.result {
-    opacity: 0;
+.weapon:hover {
+    background-color: var(--darkest);
 }
+
+.parag {
+    text-align: center;
+    margin-top: 2vh;
+    color: var(--lightest);
+}
+
+.footer {
+    background-color: var(--darkest);
+    text-align: center;
+    color: var(--lightest);
+    font-size: small;
+    padding: .5rem;
+    width: 100vw;
+}
+
