@@ -70,8 +70,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.3vh;
+    gap: 1rem;
 }
+
+.you-pick,
+.computer-pick {
+    font-size: clamp(3.5rem,5vw,5rem);
+}
+
+.computer-pick {
+    rotate: -0.25turn;
+    transition: rotate 120ms ease;
+}
+
+.you-pick {
+    transform: scaleX(-1); 
+    rotate: 0.25turn;
+    transition: rotate 120ms ease;
+}
+
 
 .weapons {
     display: flex;
@@ -79,19 +96,13 @@
     gap: 5vw;
 }
 
-
-.you-pick,
-.computer-pick {
-    padding: 0.4rem;
-    font-size: clamp(3.5rem,5vw,5rem);
-    border-radius: 5vw;
-}
-
 .weapon{
     background-color: var(--light);
-    padding: 1rem;
+    padding: 1.2rem;
     font-size: clamp(2rem,5vw,5rem);
     border-radius: 30px;
+    aspect-ratio: 1;
+    cursor: pointer;
 }
 
 .weapon:hover {
@@ -115,3 +126,49 @@
     font: .8rem;
 }
 
+.game-over {
+    width: max-content;
+    height: max-content;
+    border-radius: 3rem;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 3rem;
+    font-size: larger;
+    font-weight: 900;
+    color: var(--lightest);
+    background-image: linear-gradient(to bottom, var(--darkest), var(--dark));
+    box-shadow: 0 0.5rem 0.5rem 0.1rem var(--lightest);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
+
+#btn-play-again {
+    color: var(--lightest);
+    background-color: var(--dark);
+    border: 0;
+    border-radius: 2rem;
+    padding: .5rem 1rem;
+    box-shadow: 0 0.5rem 0.5rem 0.1rem var(--lightest);
+}
+
+#btn-play-again:hover {
+    color: var(--dark);
+    background-color: var(--lightest);
+    box-shadow: 0 0.5rem 0.5rem 0.1rem var(--darkest);
+}
+
+.bg-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+}

@@ -14,8 +14,8 @@ function computerRandomPick() {
 }
 
 function updateScore(comparePick) {
-    const youPoint = document.getElementById('you-point')
-    const computerPoint = document.getElementById('computer-point')
+    const youPoint = document.getElementById('you-point');
+    const computerPoint = document.getElementById('computer-point');
     if (comparePick == 'win') {
         +youPoint.textContent ++;
     } else if (comparePick == 'lost') {
@@ -70,16 +70,79 @@ function displayResult(comparePick, yourPick, computerPick) {
     }
 }
 
+function pickDisplayTransition() {
+    let userDisplay = document.querySelector('.you-pick');
+    let computerDisplay = document.querySelector('.computer-pick');
+    userDisplay.textContent = '✊';
+    computerDisplay.textContent = '✊';
+    userDisplay.setAttribute('style', 'rotate: 0turn');
+    setTimeout(() => {
+        userDisplay.removeAttribute('style');
+    }, 150);
+    computerDisplay.setAttribute('style', 'rotate: 0turn');
+    setTimeout(() => {
+        computerDisplay.removeAttribute('style');
+    }, 150);
+}
+
+function changePickDisplay(userDisplay,computerDisplay) {
+    let userDisplayAfter = document.querySelector('.you-pick');
+    let computerDisplayAfter = document.querySelector('.computer-pick');
+    let dict = { 'rock':'✊', 'paper':'✋', 'scissor': '✌'};
+
+    userDisplayAfter.textContent = dict[userDisplay];
+    computerDisplayAfter.textContent = dict[computerDisplay];
+}
+
+function checkScore() {
+    const youPoint = document.getElementById('you-point');
+    const computerPoint = document.getElementById('computer-point');
+    if (youPoint.textContent == '5' || computerPoint.textContent == '5') {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function isGameOver() {
+    let gameOverDiv = document.querySelector('.game-over');
+    let bgBlur = document.querySelector('.bg-blur');
+
+    if (checkScore()) {
+        gameOverDiv.style.display = 'flex';
+        bgBlur.style.display = 'block';
+    } else {
+        return;
+    }
+}
+
+function restartGame() {
+    let playAgain = document.getElementById('btn-play-again');
+    playAgain.addEventListener('click', () => window.location.reload())
+
+}
+
 let weapons = document.querySelector('.weapons');
 for (let i=0; i<weapons.children.length; i++) {
     weapons.children[i].addEventListener('click', function(e) {
+    
         let computerPick = computerRandomPick();
         let yourPick = e.target.id;
         let comparePick = comparePicks(yourPick,computerPick);
-        updateScore(comparePick)
-        displayResult(comparePick,yourPick,computerPick)
+        let repeatTransition = setInterval(pickDisplayTransition, 250);
+
+        setTimeout(() => {
+            clearInterval(repeatTransition);
+            updateScore(comparePick);
+            displayResult(comparePick,yourPick,computerPick);
+            changePickDisplay(yourPick,computerPick);
+            isGameOver()
+            restartGame()
+        }, 900);
     });
 }
+
+
 
 
 
