@@ -107,12 +107,21 @@ function checkScore() {
 function isGameOver() {
     let gameOverDiv = document.querySelector('.game-over');
     let bgBlur = document.querySelector('.bg-blur');
+    let result = document.querySelector('.game-over-result');
+    const youPoint = document.getElementById('you-point');
+    const computerPoint = document.getElementById('computer-point');
 
     if (checkScore()) {
         gameOverDiv.style.display = 'flex';
         bgBlur.style.display = 'block';
     } else {
         return;
+    }
+    
+    if (+youPoint.textContent > +computerPoint.textContent) {
+        result.textContent = 'Congratulations! You won!';
+    } else {
+        result.textContent = 'Better luck next time!'
     }
 }
 
