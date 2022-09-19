@@ -10,7 +10,7 @@
     margin: 0;
     box-sizing: border-box;
     line-height: 1.1;
-
+    font: inherit;
     font-family: 'Merriweather', serif;
     font-family: 'Montserrat', sans-serif;
 }
@@ -18,29 +18,32 @@
 .working-container {
     width: 100vw;
     height: 100vh;
-    background-color: var(--dark);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+    background-color: var(--dark);
+
 }
 
 .header {
+    font-family: 'Merriweather', serif;
+    font-weight: 900;
     text-align: center;
     background-color: var(--darkest);
     color: #fff;
     padding: 10px;
     width: 100%;
-    font-size: clamp(.8rem, 1vw, 1.2rem);
+    font-size: clamp(.8rem, 1vh, 1.2rem);
 }
 
 .main {
-    padding: 0 28px;
+    padding: 20px 28px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 10vh;
-    min-height: max-content;
+    /* min-height: 100%; */
+    background-color: var(--dark);
 
 }
 
@@ -52,7 +55,14 @@
 }
 
 .you, .computer {
-    font-size: clamp(20px, 2vw, 3rem);
+    font-size: clamp(1.5rem, 2vw, 3rem);
+}
+
+@media (max-width: 350px) {
+    .you, .computer {
+        font-size: clamp(.9rem, 2vw, 3rem);
+    }
+    
 }
 
 .you-div,
@@ -80,7 +90,7 @@
 .weapon{
     background-color: var(--light);
     padding: 1rem;
-    font-size: clamp(3.5rem,5vw,5rem);
+    font-size: clamp(2rem,5vw,5rem);
     border-radius: 30px;
 }
 
@@ -89,6 +99,7 @@
 }
 
 .parag {
+    font-size: 1rem;
     text-align: center;
     margin-top: 2vh;
     color: var(--lightest);
@@ -101,5 +112,6 @@
     font-size: small;
     padding: .5rem;
     width: 100vw;
+    font: .8rem;
 }
 
